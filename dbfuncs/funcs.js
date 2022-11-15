@@ -4,9 +4,12 @@ const db = require('../connection.js')
 const cTable = require('console.table')
 
 depts = () => {
-    db.query('SELECT * FROM department',
+    db.query('SELECT * FROM department SORT BY id',
         (err, res, rows) => {
             console.table(res);
+            setTimeout(() => {
+                initMenu();
+            }, 800)
         })
 }
 
@@ -135,11 +138,9 @@ chgRole = () => {
     db.query('SELECT id as value, title as name FROM role',
         (err, res, rows) => {
             rolesList = res;
-            console.log(rolesList)
             db.query('SELECT id as value, CONCAT(first_name," ",last_name) as name FROM employee',
                 (err, res, rows) => {
                     empList = res;
-                    console.log(empList)
                     questions = [
                         {
                             type: 'list',
@@ -158,7 +159,9 @@ chgRole = () => {
                     inquirer.prompt(questions)
                         .then((data) => {
                             db.query(`UPDATE employee SET role_id = ${data.role_id} WHERE id = ${data.emp_id}`, () => console.log(`Updated employee's role`))
-                            initMenu();
+                            setTimeout(() => {
+                                initMenu();
+                            }, 800)
                         })
 
                 })
