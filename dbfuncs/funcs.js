@@ -4,13 +4,13 @@ const db = require('../connection.js')
 const cTable = require('console.table')
 
 depts = () => {
-    db.query('SELECT * FROM department SORT BY id',
+    db.query('SELECT * FROM department ORDER BY id',
         (err, res, rows) => {
             console.table(res);
-            setTimeout(() => {
-                initMenu();
-            }, 800)
         })
+    setTimeout(() => {
+        initMenu();
+    }, 800)
 }
 
 emps = () => {
