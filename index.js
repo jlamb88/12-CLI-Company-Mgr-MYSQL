@@ -1,8 +1,6 @@
 const funcs = require('./dbfuncs/funcs')
 const dotenv = require('dotenv')
 const inquirer = require('inquirer');
-const db = require('./connection')
-
 
 dotenv.config()
 
@@ -26,7 +24,6 @@ initMenu = () => {
 
     inquirer.prompt(menu)
         .then((data) => {
-            console.log(data.menuVal);
             switch (data.menuVal) {
                 case "Show all departments":
                     funcs.depts();

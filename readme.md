@@ -41,7 +41,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 ## Installation
 - Github: https://github.com/jlamb88/12-CLI-Company-Mgr-MYSQL.git
-- Walkthrough: https://app.castify.com/watch/2ba7bd7b-9bd2-493b-91b8-1b7682259aad
+- Walkthrough: https://app.castify.com/view/2ba7bd7b-9bd2-493b-91b8-1b7682259aad
 
 ## Usage
   npm packages: inquirer, mysql2, console.table
